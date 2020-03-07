@@ -1,23 +1,16 @@
 import React from 'react'
 
-const VideoItem = (props) => {
+import './VideoItem.css'
 
-  const { id, snippet } = props.video
+const VideoItem = ({ video, onVideoSelect }) => {
 
-  console.log(props)
+  const { snippet } = video
+  
   return (
-    <div key={id} className="ui card" style={{marginTop: '20px'}}>
-      <div className="image">
-        <img src={snippet.thumbnails.medium.url} />
-      </div>
+    <div onClick={() => {onVideoSelect(video)}} className="video-item item">
+      <img className="ui image" src={snippet.thumbnails.medium.url} alt="" />
       <div className="content">
-        <a className="header">{snippet.title}</a>
-        <div className="meta">
-          <span className="date">{snippet.publishedAt}</span>
-        </div>
-        <div className="description">
-          {snippet.description}
-        </div>
+        <div className="header">{snippet.title}</div>
       </div>
     </div>
   )
