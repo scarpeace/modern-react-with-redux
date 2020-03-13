@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux'
 
+import postReducers from './postsReducer'
+import userReducer from './userReducer'
+
 export default combineReducers({
-  replaceMe: () => 'hello'
+  posts: postReducers,
+  users: userReducer
 })
