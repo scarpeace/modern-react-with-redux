@@ -1,10 +1,10 @@
-import streams from '../apis/streams'
 import { SIGN_IN, SIGN_OUT } from './types'
+import axios from 'axios'
 
 export const signIn = (userId) => {
   return {
     type: SIGN_IN,
-    payload:{
+    payload: {
       userId
     }
   }
@@ -16,8 +16,8 @@ export const signOut = () => {
   }
 }
 
-export const createStream = (formValues) =>{
-  return async dispatch =>{
-    streams.post('/streams',formValues)
+export const createStream = (formValues) => {
+  return async dispatch => {
+    axios.post('http://localhost:3001/streams', formValues)
   }
 }
